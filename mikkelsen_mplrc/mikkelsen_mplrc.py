@@ -15,8 +15,8 @@ def set_paper():
     mpl.rcParams['font.serif'] = 'Computer Modern'
 
     # Font size of labels and ticklabels
-    fontsize = 22 # Font size
-    ticksize = 16
+    fontsize = 18 # Font size
+    ticksize = 14
     # Set the above
     mpl.rcParams['axes.labelsize'] = fontsize
     mpl.rcParams['legend.fontsize'] = fontsize
