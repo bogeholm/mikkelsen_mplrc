@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 ```
 
 
-Generate random walk data
+Generate random walk data:
 ```python
 np.random.seed(42*42)
 noise = np.random.randn(1000)
@@ -43,6 +43,8 @@ ax1.legend()
 
 ### `presentation()`
 ```python
+mkl.presentation()
+
 fig2, ax2 = plt.subplots(1, 1)
 ax2.plot(x, label='Drunken Walk', c=bluish)
 ax2.set_xlabel(r'$t$')
@@ -58,6 +60,8 @@ ax2.legend()
 
 ### `mpldefaults()`
 ```python
+mkl.mpldefaults()
+
 fig3, ax3 = plt.subplots(1, 1)
 ax3.plot(x, label='Drunken Walk', c=bluish)
 ax3.set_xlabel(r'$t$')
