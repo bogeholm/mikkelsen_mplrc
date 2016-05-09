@@ -6,6 +6,7 @@ setup(name='mikkelsen_mplrc',
       author='Troels Bogeholm Mikkelsen',
       author_email='bogeholm@nbi.ku.dk',
       license='MIT',
-      install_requires=['matplotlib'],
+      install_requires=['matplotlib',
+                        'seaborn'],
       packages=['mikkelsen_mplrc'],
       zip_safe=False)
