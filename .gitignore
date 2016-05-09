@@ -12,7 +12,7 @@
 # https://stackoverflow.com/questions/2545602/git-ignore-sub-folders
 build/
 dist/
-topy.egg-info/
+mikkelsen_mplrc.egg-info/
 
 # -------------------- R specifif files ----------------------------------------
 *.Rhistory
