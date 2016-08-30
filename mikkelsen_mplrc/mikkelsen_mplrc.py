@@ -2,6 +2,7 @@ import matplotlib as mpl
 import numpy as np
 from cycler import cycler
 import matplotlib.pyplot as plt
+import seaborn.xkcd_rgb as xkcd
 
 #import seaborn as sns
 
@@ -78,7 +79,9 @@ def sRGB():
     purple = np.array([170, 130, 255]) / 255
     black = np.array([0, 0, 0]) / 255
 
-    return [blue, pink, orange, green, yellow, purple, black]
+    #return [blue, pink, orange, green, yellow, purple, black]
+    return [blue, pink, green, orange, purple, yellow, black]
+
 
 def genericRGB():
     # Define Apple colors - using generic RGB
@@ -90,7 +93,8 @@ def genericRGB():
     purple = np.array([153, 102, 255]) / 255
     black = np.array([0, 0, 0]) / 255
 
-    return [blue, pink, orange, green, yellow, purple, black]
+    #return [blue, pink, orange, green, yellow, purple, black]
+    return [blue, pink, green, orange, purple, yellow, black]
 
 def adobeRGB():
     # Define Apple colors - using Adobe RGB
@@ -102,7 +106,20 @@ def adobeRGB():
     purple = np.array([159, 129, 251]) / 255
     black = np.array([0, 0, 0]) / 255
 
-    return [blue, pink, orange, green, yellow, purple, black]
+    #return [blue, pink, orange, green, yellow, purple, black]
+    return [blue, pink, green, orange, purple, yellow, black]
+
+def damped_colors():
+    # These are / will be slightly damped
+    blue = xkcd['sky blue']
+    pink = xkcd['pinkish red']
+    green = xkcd['kelly green']
+    orange = xkcd['pumpkin orange']
+    purple = xkcd['purpley blue']
+    yellow = xkcd['bright yellow']
+    grey = xkcd['steel grey']
+
+    return [blue, pink, green, orange, purple, yellow, grey]
 
 def set_sRGB():
     plt.rc('axes', prop_cycle=(cycler('color', sRGB())))
@@ -112,3 +129,6 @@ def set_genericRGB():
 
 def set_adobeRGB():
     plt.rc('axes', prop_cycle=(cycler('color', adobeRGB())))
+
+def set_damped_colors():
+    plt.rc('axes', prop_cycle=(cycler('color', damped_colors())))
