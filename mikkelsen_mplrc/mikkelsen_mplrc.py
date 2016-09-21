@@ -119,6 +119,12 @@ def damped_colors():
     yellow = xkcd['bright yellow']
     grey = xkcd['steel grey']
 
+def mikkelsen_colors():
+    # TODO: Add this colormap;
+    #   1) Redder red
+    #   --> Just as in Hardwiring Happiness
+    return None
+
     return [blue, pink, green, orange, purple, yellow, grey]
 
 def set_sRGB():
