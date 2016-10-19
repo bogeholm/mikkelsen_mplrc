@@ -25,8 +25,8 @@ def paper():
     mpl.rcParams['font.serif'] = 'Computer Modern'
 
     # Font size of labels and ticklabels
-    fontsize = 18 # Font size
-    ticksize = 14
+    fontsize = 14 # Font size
+    ticksize = 12
     # Set the above
     mpl.rcParams['axes.titlesize'] = fontsize
     mpl.rcParams['axes.labelsize'] = fontsize
@@ -119,11 +119,20 @@ def damped_colors():
     yellow = xkcd['bright yellow']
     grey = xkcd['steel grey']
 
+    return [blue, pink, green, orange, purple, yellow, grey]
+
+
 def mikkelsen_colors():
     # TODO: Add this colormap;
     #   1) Redder red
     #   --> Just as in Hardwiring Happiness
-    return None
+    blue = xkcd['bright blue']
+    pink = xkcd['reddish pink']
+    green = xkcd['kelly green']
+    orange = xkcd['pumpkin orange']
+    purple = xkcd['purpley blue']
+    yellow = xkcd['bright yellow']
+    grey = xkcd['steel grey']
 
     return [blue, pink, green, orange, purple, yellow, grey]
 
