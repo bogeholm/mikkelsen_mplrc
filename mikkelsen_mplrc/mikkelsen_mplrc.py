@@ -6,11 +6,22 @@ import seaborn.xkcd_rgb as xkcd
 
 #import seaborn as sns
 
-def paper():
+def paper(**kwargs):
     # Use seaborn
     import seaborn as sns
     sns.set_style('white')
     sns.set_style('ticks')
+
+    # User can specify most parameters
+    titlesize = kwargs.get('titlesize', 14)
+    labelsize = kwargs.get('labelsize', 14)
+    legendsize = kwargs.get('legendsize', 14)
+    ticksize = kwargs.get('fontsize', 12)
+    allfontsize = kwargs.get('allfontsize', None)
+    if allfontsize is not None:
+        titlesize = allfontsize
+        labelsize = allfontsize
+        legendsize = allfontsize
 
     # Matplotlib parameters
     # Use TeX
@@ -24,13 +35,10 @@ def paper():
     mpl.rcParams['font.family'] = 'serif'
     mpl.rcParams['font.serif'] = 'Computer Modern'
 
-    # Font size of labels and ticklabels
-    fontsize = 14 # Font size
-    ticksize = 12
     # Set the above
-    mpl.rcParams['axes.titlesize'] = fontsize
-    mpl.rcParams['axes.labelsize'] = fontsize
-    mpl.rcParams['legend.fontsize'] = fontsize
+    mpl.rcParams['axes.titlesize'] = titlesize
+    mpl.rcParams['axes.labelsize'] = labelsize
+    mpl.rcParams['legend.fontsize'] = legendsize
 
     mpl.rcParams['xtick.labelsize'] = ticksize
     mpl.rcParams['ytick.labelsize'] = ticksize
@@ -135,6 +143,38 @@ def mikkelsen_colors():
     grey = xkcd['steel grey']
 
     return [blue, pink, green, orange, purple, yellow, grey]
+
+# Bright darker blue - bright darker green - bright dark red - purple - orange - grey - light blue - light green - pink - yellow - black
+# Bright darker blue - bright darker green - bright dark red - purple - orange - grey - light blue - light green - pink - yellow - black
+def mikl2():
+    # bdb - clear, dark blue
+    cdb = xkcd['cerulean'] # 'cobalt',
+    # cdg - clear, dark green
+    cdg = xkcd['medium green'] # 'forest green', 'greenish', 'leaf green', 'apple green'
+    # cdr - clear, dark red
+    cdr = xkcd['scarlet']
+    # prpl - purple
+    prpl = xkcd['pastel purple'] # 'blue purple', 'purplish blue', 'violet'
+    # orng - orange
+    orng = xkcd['tangerine'] # 'yellow orange'
+    # grey
+    grey = xkcd['steel grey'] # 'steel grey'
+    # lb- light blue
+    lb = xkcd['baby blue'] # 'azure'
+    # lg - light green
+    lg = xkcd['chartreuse'] # 'emerald', 'medium green', 'dark seafoam green', 'pastel green', 'spring green'
+    # pink
+    pink = xkcd['bright pink']# 'pink', 'bright pink', 'hot pink'
+    # ylw - yellow
+    ylw = xkcd['bright yellow'] # 'yellow'
+    # black
+    black = xkcd['dark blue']# 'black'
+
+    # List of all
+    allcls = [cdb, cdg, grey, cdr, prpl, orng, lb, lg, pink, ylw, black]
+
+    # Return all
+    return [c for c in allcls if c is not None]
 
 def set_sRGB():
     plt.rc('axes', prop_cycle=(cycler('color', sRGB())))
