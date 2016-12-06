@@ -145,33 +145,34 @@ def mikkelsen_colors():
     return [blue, pink, green, orange, purple, yellow, grey]
 
 # Bright darker blue - bright darker green - bright dark red - purple - orange - grey - light blue - light green - pink - yellow - black
-# Bright darker blue - bright darker green - bright dark red - purple - orange - grey - light blue - light green - pink - yellow - black
 def mikl2():
     # bdb - clear, dark blue
     cdb = xkcd['cerulean'] # 'cobalt',
     # cdg - clear, dark green
-    cdg = xkcd['medium green'] # 'forest green', 'greenish', 'leaf green', 'apple green'
+    cdg = xkcd['grass green'] # 'forest green', 'greenish', 'leaf green', 'apple green', 'medium green'
     # cdr - clear, dark red
     cdr = xkcd['scarlet']
     # prpl - purple
-    prpl = xkcd['pastel purple'] # 'blue purple', 'purplish blue', 'violet'
+    prpl = xkcd['light purple'] # 'heliotrope',  'pastel purple', 'blue purple', 'purplish blue', 'violet'
     # orng - orange
-    orng = xkcd['tangerine'] # 'yellow orange'
+    orng = xkcd['orange'] #xkcd['tangerine'] # 'yellow orange'
     # grey
     grey = xkcd['steel grey'] # 'steel grey'
     # lb- light blue
     lb = xkcd['baby blue'] # 'azure'
     # lg - light green
-    lg = xkcd['chartreuse'] # 'emerald', 'medium green', 'dark seafoam green', 'pastel green', 'spring green'
+    # 'easter green', soft green', 'chartreuse', 'jade', 'faded green', 'teal green', 'pastel green', 'spring green'
+    lg = "#2ecc71"# xkcd['easter green'] # 'lighter green', 'emerald', 'medium green', 'dark seafoam green',
     # pink
-    pink = xkcd['bright pink']# 'pink', 'bright pink', 'hot pink'
+    pink = xkcd['shocking pink']# 'electric pink', 'pink', 'bright pink', 'hot pink', 'barbie pink'
     # ylw - yellow
-    ylw = xkcd['bright yellow'] # 'yellow'
+    ylw = xkcd['lemon yellow'] # 'yellow', 'bright yellow', 'lemon yellow'
     # black
     black = xkcd['dark blue']# 'black'
 
     # List of all
-    allcls = [cdb, cdg, grey, cdr, prpl, orng, lb, lg, pink, ylw, black]
+    #allcls = [cdb, cdg, grey, cdr, prpl, orng, lb, lg, pink, ylw, black] # original
+    allcls = [cdb, cdg, grey, cdr, prpl, orng, lb, pink, lg, ylw, black] # original
 
     # Return all
     return [c for c in allcls if c is not None]
