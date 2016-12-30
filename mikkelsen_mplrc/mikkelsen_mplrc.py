@@ -3,7 +3,7 @@ import numpy as np
 from cycler import cycler
 import matplotlib.pyplot as plt
 import seaborn.xkcd_rgb as xkcd
-
+#from collections import OrderedDict
 #import seaborn as sns
 
 def paper(**kwargs):
@@ -12,12 +12,15 @@ def paper(**kwargs):
     sns.set_style('white')
     sns.set_style('ticks')
 
+    fonts = 16
+    ticks = 14
+
     # User can specify most parameters
-    titlesize = kwargs.get('titlesize', 14)
-    labelsize = kwargs.get('labelsize', 14)
-    legendsize = kwargs.get('legendsize', 14)
-    ticksize = kwargs.get('fontsize', 12)
-    allfontsize = kwargs.get('allfontsize', None)
+    titlesize = kwargs.get('titlesize', fonts)
+    labelsize = kwargs.get('labelsize', fonts)
+    legendsize = kwargs.get('legendsize', fonts)
+    ticksize = kwargs.get('ticksize', fonts)
+    allfontsize = kwargs.get('allfontsize', ticks)
     if allfontsize is not None:
         titlesize = allfontsize
         labelsize = allfontsize
@@ -144,38 +147,58 @@ def mikkelsen_colors():
 
     return [blue, pink, green, orange, purple, yellow, grey]
 
-# Bright darker blue - bright darker green - bright dark red - purple - orange - grey - light blue - light green - pink - yellow - black
-def mikl2():
+
+mklcls = {
     # bdb - clear, dark blue
-    cdb = xkcd['cerulean'] # 'cobalt',
+    'blue':xkcd['cerulean'], # 'cobalt',
     # cdg - clear, dark green
-    cdg = xkcd['grass green'] # 'forest green', 'greenish', 'leaf green', 'apple green', 'medium green'
+    'green':xkcd['grass green'], # 'forest green', 'greenish', 'leaf green', 'apple green', 'medium green'
     # cdr - clear, dark red
-    cdr = xkcd['scarlet']
+    'red':xkcd['scarlet'],
     # prpl - purple
-    prpl = xkcd['light purple'] # 'heliotrope',  'pastel purple', 'blue purple', 'purplish blue', 'violet'
+    'purple':xkcd['light purple'], # 'heliotrope',  'pastel purple', 'blue purple', 'purplish blue', 'violet'
     # orng - orange
-    orng = xkcd['orange'] #xkcd['tangerine'] # 'yellow orange'
+    'orange':xkcd['orange'], #xkcd['tangerine'] # 'yellow orange'
     # grey
-    grey = xkcd['steel grey'] # 'steel grey'
+    'grey':xkcd['steel grey'], # 'steel grey'
     # lb- light blue
-    lb = xkcd['baby blue'] # 'azure'
+    'light blue':xkcd['baby blue'], # 'azure'
     # lg - light green
     # 'easter green', soft green', 'chartreuse', 'jade', 'faded green', 'teal green', 'pastel green', 'spring green'
-    lg = "#2ecc71"# xkcd['easter green'] # 'lighter green', 'emerald', 'medium green', 'dark seafoam green',
+    'light green':"#2ecc71",# xkcd['easter green'] # 'lighter green', 'emerald', 'medium green', 'dark seafoam green',
     # pink
-    pink = xkcd['shocking pink']# 'electric pink', 'pink', 'bright pink', 'hot pink', 'barbie pink'
+    'pink':xkcd['shocking pink'],# 'electric pink', 'pink', 'bright pink', 'hot pink', 'barbie pink'
     # ylw - yellow
-    ylw = xkcd['lemon yellow'] # 'yellow', 'bright yellow', 'lemon yellow'
+    'yellow':xkcd['lemon yellow'], # 'yellow', 'bright yellow', 'lemon yellow'
     # black
-    black = xkcd['dark blue']# 'black'
+    'dark blue':xkcd['dark blue'],# 'black'
+    # fill - silver
+    'fill silver':xkcd['silver'],
+    # fill - blue
+    'fill blue':xkcd['light grey blue']
+}
+
+
+# Bright darker blue - bright darker green - bright dark red - purple - orange - grey - light blue - light green - pink - yellow - black
+def mikl2():
 
     # List of all
-    #allcls = [cdb, cdg, grey, cdr, prpl, orng, lb, lg, pink, ylw, black] # original
-    allcls = [cdb, cdg, grey, cdr, prpl, orng, lb, pink, lg, ylw, black] # original
+    allcls = [
+        mklcls['blue'],
+        mklcls['green'],
+        mklcls['grey'],
+        mklcls['red'],
+        mklcls['purple'],
+        mklcls['dark blue'],
+        mklcls['orange'],
+        mklcls['pink'],
+        mklcls['light blue'],
+        mklcls['light green'],
+        mklcls['yellow']
+    ]
 
     # Return all
-    return [c for c in allcls if c is not None]
+    return allcls
 
 def set_sRGB():
     plt.rc('axes', prop_cycle=(cycler('color', sRGB())))
