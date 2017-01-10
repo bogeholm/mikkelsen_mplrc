@@ -181,12 +181,14 @@ mklcls = {
 
 # Bright darker blue - bright darker green - bright dark red - purple - orange - grey - light blue - light green - pink - yellow - black
 def mikl2():
-
+    """ Return colors for color map. Forget grey, since this
+        is used for plotting things that dont count
+    """
     # List of all
     allcls = [
         mklcls['blue'],
         mklcls['green'],
-        mklcls['grey'],
+        #mklcls['grey'],
         mklcls['red'],
         mklcls['purple'],
         mklcls['dark blue'],
