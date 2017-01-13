@@ -3,12 +3,12 @@ import numpy as np
 from cycler import cycler
 import matplotlib.pyplot as plt
 import seaborn.xkcd_rgb as xkcd
+import seaborn as sns
 #from collections import OrderedDict
 #import seaborn as sns
 
 def paper(**kwargs):
     # Use seaborn
-    import seaborn as sns
     sns.set_style('white')
     sns.set_style('ticks')
 
@@ -20,7 +20,7 @@ def paper(**kwargs):
     labelsize = kwargs.get('labelsize', fonts)
     legendsize = kwargs.get('legendsize', fonts)
     ticksize = kwargs.get('ticksize', fonts)
-    allfontsize = kwargs.get('allfontsize', ticks)
+    allfontsize = kwargs.get('allfontsize', None)
     if allfontsize is not None:
         titlesize = allfontsize
         labelsize = allfontsize
